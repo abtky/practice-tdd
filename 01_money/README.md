@@ -3,8 +3,8 @@
 - [x] pnpm
 - [x] vite - create project
 - [x] typescript
-- [ ] eslint
-  - [ ] husky
+- [x] eslint
+  - [x] husky
   - [x] air bnb
 - [x] prettier
 - [ ] Jest
@@ -74,4 +74,9 @@ npx lint-staged
 '*.{js,jsx,ts,tsx}':
 - eslint --fix
 - prettier --write
+```
+
+### Jest (with TypeScript)
+```zsh
+pnpm i jest @types/jest ts-jest -D
 ```
