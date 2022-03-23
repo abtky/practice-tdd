@@ -45,3 +45,19 @@ tabWidth: 2
 singleQuote: true
 semi: true
 ```
+
+### husky + lint-staged
+
+```zsh
+pnpm install -D husky lint-staged
+```
+
+```javascript
+// package.json
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ]
+},
+```
