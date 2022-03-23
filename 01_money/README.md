@@ -1,5 +1,3 @@
-ToDo
-
 ## Setup
 - [ ] pnpm
 - [ ] vite - create project
