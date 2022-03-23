@@ -51,13 +51,27 @@ semi: true
 ```zsh
 pnpm install -D husky lint-staged
 ```
+```zsh
+npx husky install
+```
+↓The .husky directory is then created.
+```
+.husky
+├── _
+│   └── husky.sh
+└── pre-commit
+```
 
-```javascript
-// package.json
-"lint-staged": {
-  "*.{js,jsx,ts,tsx}": [
-    "eslint --fix",
-    "prettier --write"
-  ]
-},
+```shell:.husky/pre-commit
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+cd ./01_money
+npx lint-staged
+```
+
+```yaml:.lintstagedrc.yml
+'*.{js,jsx,ts,tsx}':
+- eslint --fix
+- prettier --write
 ```
