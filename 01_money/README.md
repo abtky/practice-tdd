@@ -6,9 +6,9 @@
 - [ ] eslint
   - [ ] husky
   - [x] air bnb
-- [ ] prettier
-  - [ ] auto format on save
-  - [ ] editorconfig
+- [x] prettier
+- [ ] Jest
+  - [ ] husky
 
 ## Install
 

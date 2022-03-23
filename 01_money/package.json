@@ -18,5 +18,9 @@
     "prettier": "^2.6.0",
     "typescript": "^4.5.4",
     "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7"
   }
 }
