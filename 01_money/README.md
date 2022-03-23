@@ -4,7 +4,7 @@
 - [x] typescript 
 - [ ] eslint
   - [ ] husky
-  - [ ] air bnb
+  - [x] air bnb
 - [ ] prettier
   - [ ] auto format on save
   - [ ] editorconfig
