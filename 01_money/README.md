@@ -1,7 +1,7 @@
 ## Setup
-- [ ] pnpm
-- [ ] vite - create project
-- [ ] typescript 
+- [x] pnpm
+- [x] vite - create project
+- [x] typescript 
 - [ ] eslint
   - [ ] husky
   - [ ] air bnb
