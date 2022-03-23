@@ -3,3 +3,4 @@
 
 cd ./01_money
 npx lint-staged
+npx jest

@@ -80,3 +80,34 @@ npx lint-staged
 ```zsh
 pnpm i jest @types/jest ts-jest -D
 ```
+```javascript:jest.config.js
+module.exports = {
+  roots: ['<rootDir>/src'],
+  testMatch: [
+    '**/__tests__/**/*.+(ts|tsx|js)',
+    '**/?(*.)+(spec|test).+(ts|tsx|js)',
+  ],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'ts-jest',
+  },
+};
+```
+このままではeslintのエラー('describe' is not defined.)がでるので
+`eslint-plugin-jest`をインストールする
+```zsh
+$ pnpm i eslint-plugin-jest -D
+```
+```javascript:.eslintrc.js
+module.exports = {
+  env: {
+    ...
+    'jest/globals': true,
+  },
+  ...
+  plugins: [...,'jest'],
+};
+```
+↓huskyにjestを追記してテストに失敗したらコミットできないようにする
+```shell:.husky/pre-commit
+npx jest
+```
