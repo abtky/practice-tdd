@@ -1,4 +1,4 @@
-## Setup
+## TODO
 
 - [x] pnpm
 - [x] vite - create project
@@ -7,10 +7,17 @@
   - [x] husky
   - [x] air bnb
 - [x] prettier
-- [ ] Jest
-  - [ ] husky
+- [x] Jest
+  - [x] husky
 
 ## Install
+
+```zsh
+brew install pnpm
+```
+```zsh
+pnpm create vite
+```
 
 ### ESLint
 
