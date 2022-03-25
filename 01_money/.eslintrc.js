@@ -11,5 +11,8 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'jest'],
-  rules: {},
+  rules: {
+    'import/prefer-default-export': 'off',
+    'import/no-default-export': 'error',
+  },
 };
