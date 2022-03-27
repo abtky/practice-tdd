@@ -23,7 +23,7 @@ export abstract class Money {
 
   static franc(amount: number): Money {
     // eslint-disable-next-line no-use-before-define
-    return new Franc(amount);
+    return new Franc(amount, 'CHF');
   }
 }
 class Dollar extends Money {
@@ -38,13 +38,13 @@ class Dollar extends Money {
   }
 }
 class Franc extends Money {
-  constructor(amount: number) {
+  constructor(amount: number, currency: string) {
     super();
     this.amount = amount;
-    this.currency = 'CHF';
+    this.currency = currency;
   }
 
   times(multiplier: number): Money {
-    return new Franc(this.amount * multiplier);
+    return new Franc(this.amount * multiplier, this.currency);
   }
 }
