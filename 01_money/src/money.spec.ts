@@ -1,4 +1,8 @@
-import { Money, Expression, Bank, Sum } from './money'; // eslint-disable-line import/no-unresolved, import/extensions
+/* eslint-disable import/no-unresolved, import/extensions */
+import { Money } from './Money';
+import { Bank } from './Bank';
+import { Sum } from './Sum';
+import { Expression } from './Expression';
 
 describe('Dollar', () => {
   test('multiplication: $5 * 2 = $10', () => {
