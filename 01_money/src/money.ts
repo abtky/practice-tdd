@@ -64,11 +64,6 @@ export class Sum implements Expression {
 export class Bank {
   // eslint-disable-next-line class-methods-use-this
   reduce(source: Expression, to: string): Money {
-    const className = source.constructor.name;
-    if (className === 'Money') {
-      return (source as Money).reduce(to);
-    }
-    const sum: Sum = source as Sum;
-    return sum.reduce(to);
+    return source.reduce(to);
   }
 }
