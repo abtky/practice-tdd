@@ -10,7 +10,7 @@ export class Dollar {
   }
 
   // eslint-disable-next-line no-unused-vars, class-methods-use-this
-  equals(_target: Dollar): boolean {
-    return true;
+  equals(target: Dollar): boolean {
+    return target.amount === this.amount;
   }
 }
