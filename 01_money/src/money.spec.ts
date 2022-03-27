@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved, import/extensions
-import { Money, Expression, Bank } from './money';
+import { Money, Expression, Bank, Sum } from './money'; // eslint-disable-line import/no-unresolved, import/extensions
 
 describe('Dollar', () => {
   test('multiplication: $5 * 2 = $10', () => {
@@ -22,5 +21,11 @@ describe('Dollar', () => {
     const bank: Bank = new Bank();
     const reduced: Money = bank.reduce(sum, 'USD');
     expect(Money.dollar(10).equals(reduced)).toBe(true);
+  });
+  test('reduce sum', () => {
+    const sum: Expression = new Sum(Money.dollar(3), Money.dollar(4));
+    const bank: Bank = new Bank();
+    const result: Money = bank.reduce(sum, 'USD');
+    expect(result.equals(Money.dollar(7))).toBe(true);
   });
 });

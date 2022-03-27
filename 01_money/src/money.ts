@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 export interface Expression {}
 export class Money implements Expression {
-  protected amount: number = 0;
+  amount: number = 0;
 
   protected currency: string = '';
 
@@ -19,7 +19,8 @@ export class Money implements Expression {
   }
 
   plus(addend: Money): Expression {
-    return new Money(this.amount + addend.amount, this.currency);
+    // eslint-disable-next-line no-use-before-define
+    return new Sum(this, addend);
   }
 
   equals(money: Money): boolean {
@@ -36,15 +37,7 @@ export class Money implements Expression {
     return new Money(amount, 'CHF');
   }
 }
-export class Bank {
-  // eslint-disable-next-line class-methods-use-this, no-unused-vars
-  reduce(source: Expression, to: string): Money {
-    console.log({ source, to });
-    return Money.dollar(10);
-  }
-}
-
-export class Sum {
+export class Sum implements Expression {
   augend: Money;
 
   addend: Money;
@@ -52,5 +45,17 @@ export class Sum {
   constructor(augend: Money, addend: Money) {
     this.augend = augend;
     this.addend = addend;
+  }
+
+  reduce(to: string): Money {
+    const amount: number = this.augend.amount + this.addend.amount;
+    return new Money(amount, to);
+  }
+}
+export class Bank {
+  // eslint-disable-next-line class-methods-use-this
+  reduce(source: Expression, to: string): Money {
+    const sum: Sum = source as Sum;
+    return sum.reduce(to);
   }
 }
