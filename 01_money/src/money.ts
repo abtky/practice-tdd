@@ -27,9 +27,9 @@ export class Money implements Expression {
     return new Sum(this, addend);
   }
 
-  // eslint-disable-next-line no-unused-vars
-  reduce(_to: string): Money {
-    return this;
+  reduce(to: string): Money {
+    const rate = this.currency === 'CHF' && to === 'USD' ? 2 : 1;
+    return new Money(this.amount / rate, to);
   }
 
   equals(money: Money): boolean {
@@ -65,5 +65,10 @@ export class Bank {
   // eslint-disable-next-line class-methods-use-this
   reduce(source: Expression, to: string): Money {
     return source.reduce(to);
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  addRate(from: string, to: string, rate: Number): void {
+    console.log({ from, to, rate });
   }
 }
