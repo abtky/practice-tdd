@@ -1,4 +1,4 @@
-/* eslint-disable import/no-unresolved, import/extensions */
+/* eslint-disable import/no-unresolved */
 import { Expression } from './Expression';
 import { Money } from './Money';
 import { Bank } from './Bank';
@@ -13,7 +13,6 @@ export class Sum implements Expression {
     this.addend = addend;
   }
 
-  // eslint-disable-next-line no-use-before-define
   reduce(_bank: Bank, to: string): Money {
     const amount: number = this.augend.amount + this.addend.amount;
     return new Money(amount, to);

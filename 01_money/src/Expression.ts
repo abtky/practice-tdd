@@ -1,8 +1,7 @@
-/* eslint-disable import/no-unresolved, import/extensions */
+/* eslint-disable import/no-unresolved */
 import { Money } from './Money';
 import { Bank } from './Bank';
 
-/* eslint-disable max-classes-per-file */
 export interface Expression {
   // eslint-disable-next-line no-unused-vars
   reduce(bank: Bank, to: string): Money;
