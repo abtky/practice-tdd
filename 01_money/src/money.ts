@@ -3,7 +3,8 @@ class Money {
   protected amount: number = 0;
 
   equals(money: Money): boolean {
-    return money.amount === this.amount;
+    const sameClass = money.constructor === this.constructor;
+    return sameClass && money.amount === this.amount;
   }
 }
 export class Dollar extends Money {
