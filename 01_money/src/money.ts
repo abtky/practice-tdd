@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-export abstract class Money {
+export class Money {
   protected amount: number = 0;
 
   protected currency: string = '';
@@ -13,11 +13,13 @@ export abstract class Money {
     return this.currency;
   }
 
-  // eslint-disable-next-line no-unused-vars
-  abstract times(value: number): Money;
+  // eslint-disable-next-line no-unused-vars, class-methods-use-this
+  times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currency);
+  }
 
   equals(money: Money): boolean {
-    const sameClass = money.constructor === this.constructor;
+    const sameClass = money.currency === this.currency;
     return sameClass && money.amount === this.amount;
   }
 
@@ -31,13 +33,5 @@ export abstract class Money {
     return new Franc(amount, 'CHF');
   }
 }
-class Dollar extends Money {
-  times(multiplier: number): Money {
-    return Money.dollar(this.amount * multiplier);
-  }
-}
-class Franc extends Money {
-  times(multiplier: number): Money {
-    return Money.franc(this.amount * multiplier);
-  }
-}
+class Dollar extends Money {}
+class Franc extends Money {}
