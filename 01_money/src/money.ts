@@ -1,17 +1,19 @@
 /* eslint-disable max-classes-per-file */
-export class Dollar {
-  private amount: number = 0;
+class Money {
+  protected amount: number = 0;
 
+  equals(money: Money): boolean {
+    return money.amount === this.amount;
+  }
+}
+export class Dollar extends Money {
   constructor(amount: number) {
+    super();
     this.amount = amount;
   }
 
   times(multiplier: number): Dollar {
     return new Dollar(this.amount * multiplier);
-  }
-
-  equals(target: Dollar): boolean {
-    return target.amount === this.amount;
   }
 }
 export class Franc {
