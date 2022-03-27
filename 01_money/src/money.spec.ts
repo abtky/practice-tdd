@@ -41,6 +41,10 @@ describe('Dollar', () => {
     const bank = new Bank();
     bank.addRate(Currency.CHF, Currency.USD, 2);
     const result: Money = bank.reduce(Money.franc(2), Currency.USD);
+    expect(bank.rate(Currency.CHF, Currency.USD)).toBe(2);
     expect(Money.dollar(1).equals(result)).toBe(true);
+  });
+  test('identity rate', () => {
+    expect(new Bank().rate(Currency.USD, Currency.USD)).toBe(1);
   });
 });
