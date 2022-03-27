@@ -10,13 +10,11 @@ export class Bank {
     return source.reduce(this, to);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   addRate(from: Currency, to: Currency, rate: number): void {
     const pair: Pair = [from, to];
     this.rates.set(pair.toString(), rate);
   }
 
-  // eslint-disable-next-line class-methods-use-this
   rate(from: Currency, to: Currency): number {
     if (from === to) {
       return 1;

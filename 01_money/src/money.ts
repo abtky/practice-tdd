@@ -22,11 +22,9 @@ export class Money implements Expression {
   }
 
   plus(addend: Money): Expression {
-    // eslint-disable-next-line no-use-before-define
     return new Sum(this, addend);
   }
 
-  // eslint-disable-next-line no-use-before-define
   reduce(bank: Bank, to: Currency): Money {
     const rate = bank.rate(this.currency, to);
     return new Money(this.amount / rate, to);
