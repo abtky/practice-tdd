@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 export class Money {
   protected amount: number = 0;
 
@@ -13,7 +12,6 @@ export class Money {
     return this.currency;
   }
 
-  // eslint-disable-next-line no-unused-vars, class-methods-use-this
   times(multiplier: number): Money {
     return new Money(this.amount * multiplier, this.currency);
   }
@@ -24,12 +22,10 @@ export class Money {
   }
 
   static dollar(amount: number): Money {
-    // eslint-disable-next-line no-use-before-define
     return new Money(amount, 'USD');
   }
 
   static franc(amount: number): Money {
-    // eslint-disable-next-line no-use-before-define
     return new Money(amount, 'CHF');
   }
 }
