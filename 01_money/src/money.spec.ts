@@ -28,4 +28,9 @@ describe('Dollar', () => {
     const result: Money = bank.reduce(sum, 'USD');
     expect(result.equals(Money.dollar(7))).toBe(true);
   });
+  test('reduce Money', () => {
+    const bank: Bank = new Bank();
+    const result: Money = bank.reduce(Money.dollar(1), 'USD');
+    expect(result.equals(Money.dollar(1))).toBe(true);
+  });
 });

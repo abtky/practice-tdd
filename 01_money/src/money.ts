@@ -1,5 +1,9 @@
 /* eslint-disable max-classes-per-file */
-export interface Expression {}
+export interface Expression {
+  // eslint-disable-next-line no-use-before-define, no-unused-vars
+  reduce(to: string): Money;
+}
+
 export class Money implements Expression {
   amount: number = 0;
 
@@ -21,6 +25,11 @@ export class Money implements Expression {
   plus(addend: Money): Expression {
     // eslint-disable-next-line no-use-before-define
     return new Sum(this, addend);
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  reduce(_to: string): Money {
+    return this;
   }
 
   equals(money: Money): boolean {
@@ -55,6 +64,10 @@ export class Sum implements Expression {
 export class Bank {
   // eslint-disable-next-line class-methods-use-this
   reduce(source: Expression, to: string): Money {
+    const className = source.constructor.name;
+    if (className === 'Money') {
+      return (source as Money).reduce(to);
+    }
     const sum: Sum = source as Sum;
     return sum.reduce(to);
   }
