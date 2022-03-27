@@ -2,7 +2,9 @@
 export abstract class Money {
   protected amount: number = 0;
 
-  abstract readonly currency: string;
+  protected currency: string = '';
+
+  abstract getCurrency(): string;
 
   // eslint-disable-next-line no-unused-vars
   abstract times(value: number): Money;
@@ -23,12 +25,14 @@ export abstract class Money {
   }
 }
 class Dollar extends Money {
-  readonly currency: string;
-
   constructor(amount: number) {
     super();
     this.amount = amount;
-    this.currency = 'USD';
+    this.currency = 'CHF';
+  }
+
+  getCurrency(): string {
+    return this.currency;
   }
 
   times(multiplier: number): Money {
@@ -36,12 +40,14 @@ class Dollar extends Money {
   }
 }
 class Franc extends Money {
-  readonly currency: string;
-
   constructor(amount: number) {
     super();
     this.amount = amount;
     this.currency = 'CHF';
+  }
+
+  getCurrency(): string {
+    return this.currency;
   }
 
   times(multiplier: number): Money {
