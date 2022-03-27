@@ -28,8 +28,8 @@ export class Money implements Expression {
   }
 
   // eslint-disable-next-line no-use-before-define
-  reduce(_bank: Bank, to: string): Money {
-    const rate = this.currency === 'CHF' && to === 'USD' ? 2 : 1;
+  reduce(bank: Bank, to: string): Money {
+    const rate = bank.rate(this.currency, to);
     return new Money(this.amount / rate, to);
   }
 
@@ -72,5 +72,10 @@ export class Bank {
   // eslint-disable-next-line class-methods-use-this
   addRate(from: string, to: string, rate: Number): void {
     console.log({ from, to, rate });
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  rate(from: string, to: string): number {
+    return from === 'CHF' && to === 'USD' ? 2 : 1;
   }
 }
