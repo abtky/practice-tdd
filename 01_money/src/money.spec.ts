@@ -19,4 +19,8 @@ describe('Dollar', () => {
     expect(five.times(2).equals(Money.franc(10))).toBeTruthy();
     expect(five.times(3).equals(Money.franc(15))).toBeTruthy();
   });
+  test('currency', () => {
+    expect(Money.dollar(1).currency).toBe('USD');
+    expect(Money.franc(1).currency).toBe('CHF');
+  });
 });
