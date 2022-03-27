@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { Expression } from './Expression';
 import { Money } from './Money';
 import { Bank } from './Bank';

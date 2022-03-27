@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { Bank } from './Bank';
 import { Expression } from './Expression';
 import { Sum } from './Sum';
