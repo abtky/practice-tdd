@@ -4,6 +4,11 @@ export abstract class Money {
 
   protected currency: string = '';
 
+  constructor(amount: number, currency: string) {
+    this.amount = amount;
+    this.currency = currency;
+  }
+
   getCurrency(): string {
     return this.currency;
   }
@@ -18,7 +23,7 @@ export abstract class Money {
 
   static dollar(amount: number): Money {
     // eslint-disable-next-line no-use-before-define
-    return new Dollar(amount);
+    return new Dollar(amount, 'USD');
   }
 
   static franc(amount: number): Money {
@@ -27,24 +32,12 @@ export abstract class Money {
   }
 }
 class Dollar extends Money {
-  constructor(amount: number) {
-    super();
-    this.amount = amount;
-    this.currency = 'USD';
-  }
-
   times(multiplier: number): Money {
-    return new Dollar(this.amount * multiplier);
+    return Money.dollar(this.amount * multiplier);
   }
 }
 class Franc extends Money {
-  constructor(amount: number, currency: string) {
-    super();
-    this.amount = amount;
-    this.currency = currency;
-  }
-
   times(multiplier: number): Money {
-    return new Franc(this.amount * multiplier, this.currency);
+    return Money.franc(this.amount * multiplier);
   }
 }
