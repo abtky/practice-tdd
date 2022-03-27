@@ -1,3 +1,4 @@
+import { Currency } from './Currency';
 import { Bank } from './Bank';
 import { Expression } from './Expression';
 import { Sum } from './Sum';
@@ -5,14 +6,14 @@ import { Sum } from './Sum';
 export class Money implements Expression {
   amount: number = 0;
 
-  protected currency: string = '';
+  protected currency: Currency;
 
-  constructor(amount: number, currency: string) {
+  constructor(amount: number, currency: Currency) {
     this.amount = amount;
     this.currency = currency;
   }
 
-  getCurrency(): string {
+  getCurrency(): Currency {
     return this.currency;
   }
 
@@ -26,7 +27,7 @@ export class Money implements Expression {
   }
 
   // eslint-disable-next-line no-use-before-define
-  reduce(bank: Bank, to: string): Money {
+  reduce(bank: Bank, to: Currency): Money {
     const rate = bank.rate(this.currency, to);
     return new Money(this.amount / rate, to);
   }
@@ -38,10 +39,10 @@ export class Money implements Expression {
   }
 
   static dollar(amount: number): Money {
-    return new Money(amount, 'USD');
+    return new Money(amount, Currency.USD);
   }
 
   static franc(amount: number): Money {
-    return new Money(amount, 'CHF');
+    return new Money(amount, Currency.CHF);
   }
 }
