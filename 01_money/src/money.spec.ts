@@ -17,7 +17,8 @@ describe('Dollar', () => {
     expect(Money.franc(1).getCurrency()).toBe('CHF');
   });
   test('addition', () => {
-    const sum: Expression = Money.dollar(5).plus(Money.dollar(5));
+    const five = Money.dollar(5);
+    const sum: Expression = five.plus(five);
     const bank: Bank = new Bank();
     const reduced: Money = bank.reduce(sum, 'USD');
     expect(Money.dollar(10).equals(reduced)).toBe(true);

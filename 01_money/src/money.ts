@@ -43,3 +43,14 @@ export class Bank {
     return Money.dollar(10);
   }
 }
+
+export class Sum {
+  augend: Money;
+
+  addend: Money;
+
+  constructor(augend: Money, addend: Money) {
+    this.augend = augend;
+    this.addend = addend;
+  }
+}
