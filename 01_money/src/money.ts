@@ -25,13 +25,11 @@ export class Money {
 
   static dollar(amount: number): Money {
     // eslint-disable-next-line no-use-before-define
-    return new Dollar(amount, 'USD');
+    return new Money(amount, 'USD');
   }
 
   static franc(amount: number): Money {
     // eslint-disable-next-line no-use-before-define
-    return new Franc(amount, 'CHF');
+    return new Money(amount, 'CHF');
   }
 }
-class Dollar extends Money {}
-class Franc extends Money {}
