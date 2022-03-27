@@ -8,9 +8,10 @@ describe('Dollar', () => {
     expect(five.times(3).equals(new Dollar(15))).toBeTruthy();
   });
   test('equality', () => {
-    const five = new Dollar(5);
-    expect(five.equals(new Dollar(5))).toBeTruthy();
-    expect(five.equals(new Dollar(6))).toBeFalsy();
+    expect(new Dollar(5).equals(new Dollar(5))).toBeTruthy();
+    expect(new Dollar(5).equals(new Dollar(6))).toBeFalsy();
+    expect(new Franc(5).equals(new Franc(5))).toBeTruthy();
+    expect(new Franc(5).equals(new Franc(6))).toBeFalsy();
   });
   test('Franc multiplication', () => {
     const five = new Franc(5);
