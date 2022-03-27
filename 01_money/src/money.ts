@@ -17,8 +17,9 @@ export class Money {
   }
 
   equals(money: Money): boolean {
-    const sameClass = money.currency === this.currency;
-    return sameClass && money.amount === this.amount;
+    const sameCurrency = money.currency === this.currency;
+    const sameAmount = money.amount === this.amount;
+    return sameCurrency && sameAmount;
   }
 
   static dollar(amount: number): Money {
