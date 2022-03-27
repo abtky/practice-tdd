@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 export interface Expression {
   // eslint-disable-next-line no-use-before-define, no-unused-vars
-  reduce(to: string): Money;
+  reduce(bank: Bank, to: string): Money;
 }
 
 export class Money implements Expression {
@@ -27,7 +27,8 @@ export class Money implements Expression {
     return new Sum(this, addend);
   }
 
-  reduce(to: string): Money {
+  // eslint-disable-next-line no-use-before-define
+  reduce(_bank: Bank, to: string): Money {
     const rate = this.currency === 'CHF' && to === 'USD' ? 2 : 1;
     return new Money(this.amount / rate, to);
   }
@@ -56,7 +57,8 @@ export class Sum implements Expression {
     this.addend = addend;
   }
 
-  reduce(to: string): Money {
+  // eslint-disable-next-line no-use-before-define
+  reduce(_bank: Bank, to: string): Money {
     const amount: number = this.augend.amount + this.addend.amount;
     return new Money(amount, to);
   }
@@ -64,7 +66,7 @@ export class Sum implements Expression {
 export class Bank {
   // eslint-disable-next-line class-methods-use-this
   reduce(source: Expression, to: string): Money {
-    return source.reduce(to);
+    return source.reduce(this, to);
   }
 
   // eslint-disable-next-line class-methods-use-this
