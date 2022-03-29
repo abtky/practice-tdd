@@ -19,4 +19,9 @@ export class Sum implements Expression {
     const amount: number = augendAmount + addendAmount;
     return new Money(amount, to);
   }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  plus(_addend: Expression): Expression {
+    return new Sum(this.augend, this.addend);
+  }
 }

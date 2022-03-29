@@ -49,8 +49,8 @@ describe('Dollar', () => {
     expect(new Bank().rate(Currency.USD, Currency.USD)).toBe(1);
   });
   test('mixed addition', () => {
-    const fiveBacks: Money = Money.dollar(5);
-    const tenFranc: Money = Money.franc(10);
+    const fiveBacks: Expression = Money.dollar(5);
+    const tenFranc: Expression = Money.franc(10);
     const bank: Bank = new Bank();
     bank.addRate(Currency.CHF, Currency.USD, 2);
     const result: Money = bank.reduce(fiveBacks.plus(tenFranc), Currency.USD);
