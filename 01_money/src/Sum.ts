@@ -4,11 +4,11 @@ import { Money } from './Money';
 import { Bank } from './Bank';
 
 export class Sum implements Expression {
-  augend: Money;
+  augend: Expression;
 
-  addend: Money;
+  addend: Expression;
 
-  constructor(augend: Money, addend: Money) {
+  constructor(augend: Expression, addend: Expression) {
     this.augend = augend;
     this.addend = addend;
   }
