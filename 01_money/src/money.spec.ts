@@ -56,4 +56,13 @@ describe('Dollar', () => {
     const result: Money = bank.reduce(fiveBacks.plus(tenFranc), Currency.USD);
     expect(result).toEqual(Money.dollar(10));
   });
+  test('sum plus money', () => {
+    const fiveBacks: Expression = Money.dollar(5);
+    const tenFranc: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate(Currency.CHF, Currency.USD, 2);
+    const sum: Expression = new Sum(fiveBacks, tenFranc).plus(fiveBacks);
+    const result: Money = bank.reduce(sum, Currency.USD);
+    expect(result).toEqual(Money.dollar(15));
+  });
 });
