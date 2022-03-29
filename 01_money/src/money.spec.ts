@@ -7,13 +7,14 @@ import { Expression } from './Expression';
 describe('Dollar', () => {
   test('multiplication: $5 * 2 = $10', () => {
     const five = Money.dollar(5);
-    expect(five.times(2).equals(Money.dollar(10))).toBe(true);
-    expect(five.times(3).equals(Money.dollar(15))).toBe(true);
+
+    expect(five.times(2)).toEqual(Money.dollar(10));
+    expect(five.times(3)).toEqual(Money.dollar(15));
   });
   test('equality', () => {
-    expect(Money.dollar(5).equals(Money.dollar(5))).toBe(true);
-    expect(Money.dollar(5).equals(Money.dollar(6))).toBe(false);
-    expect(Money.franc(5).equals(Money.dollar(5))).toBe(false);
+    expect(Money.dollar(5)).toEqual(Money.dollar(5));
+    expect(Money.dollar(5)).not.toEqual(Money.dollar(6));
+    expect(Money.franc(5)).not.toEqual(Money.dollar(5));
   });
   test('currency', () => {
     expect(Money.dollar(1).getCurrency()).toBe(Currency.USD);
@@ -42,7 +43,7 @@ describe('Dollar', () => {
     bank.addRate(Currency.CHF, Currency.USD, 2);
     const result: Money = bank.reduce(Money.franc(2), Currency.USD);
     expect(bank.rate(Currency.CHF, Currency.USD)).toBe(2);
-    expect(Money.dollar(1).equals(result)).toBe(true);
+    expect(Money.dollar(1)).toEqual(result);
   });
   test('identity rate', () => {
     expect(new Bank().rate(Currency.USD, Currency.USD)).toBe(1);
