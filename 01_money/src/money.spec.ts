@@ -65,4 +65,13 @@ describe('Dollar', () => {
     const result: Money = bank.reduce(sum, Currency.USD);
     expect(result).toEqual(Money.dollar(15));
   });
+  test('sum times', () => {
+    const fiveBacks: Expression = Money.dollar(5);
+    const tenFranc: Expression = Money.franc(10);
+    const bank: Bank = new Bank();
+    bank.addRate(Currency.CHF, Currency.USD, 2);
+    const sum: Expression = new Sum(fiveBacks, tenFranc).times(2);
+    const result: Money = bank.reduce(sum, Currency.USD);
+    expect(result).toEqual(Money.dollar(20));
+  });
 });
