@@ -20,8 +20,7 @@ export class Sum implements Expression {
     return new Money(amount, to);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  plus(_addend: Expression): Expression {
-    return new Sum(this.augend, this.addend);
+  plus(addend: Expression): Expression {
+    return new Sum(this, addend);
   }
 }
