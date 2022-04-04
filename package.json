@@ -4,7 +4,9 @@
   "description": "Practice for test driven development.",
   "main": "index.js",
   "scripts": {
-    "cd:money": "cd ./01_money"
+    "money:ci": "cd ./01_money && npm ci",
+    "money:test": "cd ./01_money && npm run test",
+    "money:build": "cd ./01_money && npm run build"
   },
   "repository": {
     "type": "git",
