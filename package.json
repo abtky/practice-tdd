@@ -1,0 +1,21 @@
+{
+  "name": "practice-tdd",
+  "version": "1.0.0",
+  "description": "Practice for test driven development.",
+  "main": "index.js",
+  "scripts": {
+    "money:ci": "cd ./01_money && npm ci",
+    "money:test": "cd ./01_money && npm run test",
+    "money:build": "cd ./01_money && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abtky/practice-tdd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abtky/practice-tdd/issues"
+  },
+  "homepage": "https://github.com/abtky/practice-tdd#readme"
+}
