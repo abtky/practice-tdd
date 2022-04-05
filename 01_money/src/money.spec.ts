@@ -1,5 +1,5 @@
 import { Currency } from './Currency';
-import { Money } from './Money';
+import { Money } from './money';
 import { Bank } from './Bank';
 import { Sum } from './Sum';
 import { Expression } from './Expression';

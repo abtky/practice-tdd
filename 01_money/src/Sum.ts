@@ -1,6 +1,6 @@
 import { Currency } from './Currency';
 import { Expression } from './Expression';
-import { Money } from './Money';
+import { Money } from './money';
 import { Bank } from './Bank';
 
 export class Sum implements Expression {
