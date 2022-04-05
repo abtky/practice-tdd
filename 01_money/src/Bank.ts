@@ -1,6 +1,6 @@
 import { Currency } from './Currency';
 import { Expression } from './Expression';
-import { Money } from './money';
+import { Money } from './Money';
 
 type Pair = [from: Currency, to: Currency];
 export class Bank {
