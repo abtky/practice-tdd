@@ -1,3 +1,6 @@
+class TestResult:
+    def summary(self):
+        return "1 run, 0 failed"
 class TestCase:
     def __init__(self, name):
         self.name = name
@@ -8,6 +11,7 @@ class TestCase:
         method = getattr(self, self.name)
         method()
         self.tearDown()
+        return TestResult()
     def tearDown(self):
         pass
 
@@ -19,10 +23,16 @@ class WasRun(TestCase):
     def tearDown(self):
         self.log = self.log + "tearDown "
 
+
 class TestCaseTest(TestCase):
     def testTemplateMethod(self):
         test = WasRun("testMethod")
         test.run()
         assert(test.log == "setUp testMethod tearDown ")
+    def testResult(self):
+        test = WasRun("testMethod")
+        result = test.run()
+        assert("1 run, 0 failed" == result.summary())
 
 TestCaseTest("testTemplateMethod").run()
+TestCaseTest("testResult").run()
